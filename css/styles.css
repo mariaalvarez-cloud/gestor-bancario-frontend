@@ -243,3 +243,31 @@ body {
   transform: translateX(-50%) translateY(0);
 }
 .muted { color: var(--color-text-secondary); }
+.bottom-nav {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  display: none; /* por defecto oculto (desktop) */
+  background: rgba(26,28,34,0.98);
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding: 10px 8px;
+  gap: 8px;
+  z-index: 1000;
+}
+.bn-item {
+  flex: 1;
+  background: var(--color-primary);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: .25s ease;
+}
+.bn-item:hover { filter: brightness(1.1); }
+
+/* Mostrar solo en pantallas pequeñas */
+@media (max-width: 720px) {
+  .bottom-nav { display: flex; }
+  .footer { padding-bottom: 68px; } /* espacio para que no tape el footer */
+}

@@ -19,6 +19,18 @@ function showToast(msg) {
     setTimeout(() => toast.remove(), 300);
   }, 2000);
 }
+// Barra inferior (prototipo)
+document.addEventListener("DOMContentLoaded", () => {
+  const map = {
+    "bn-transferir": "Prototipo: Transferir",
+    "bn-depositar": "Prototipo: Depositar",
+    "bn-retirar": "Prototipo: Retirar"
+  };
+  Object.keys(map).forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.addEventListener("click", () => showToast(map[id]));
+  });
+});
 
 // --- Render Home ---
 function renderHome() {
