@@ -3,30 +3,27 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <title>Gestor Bancario</title>
 
   <!-- SEO básico -->
   <meta name="description" content="Gestor Bancario — prototipo Neo-digital: consulta cuentas, inicia transacciones y organiza tu dinero con una interfaz clara y moderna.">
   <meta name="theme-color" content="#0F1115">
 
-  <!-- Open Graph (para compartir en redes) -->
+  <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Gestor Bancario — Prototipo MIAP">
   <meta property="og:description" content="Logra tus sueños financieros con confianza.">
   <meta property="og:url" content="https://mariaalvarez-cloud.github.io/gestor-bancario-frontend/">
-  <!-- Si aún no tienes la imagen, puedes borrar la siguiente línea -->
-  <meta property="og:image" content="https://mariaalvarez-cloud.github.io/gestor-bancario-frontend/assets/icons/og-image.png">
+  <meta property="og:image" content="https://mariaalvarez-cloud.github.io/gestor-bancario-frontend/assets/icons/og-image.png?v=2">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Logo GB MIAP y lema del Gestor Bancario">
 
   <!-- Twitter Cards -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Gestor Bancario — Prototipo MIAP">
   <meta name="twitter:description" content="Logra tus sueños financieros con confianza.">
-  <!-- Si aún no tienes la imagen, puedes borrar la siguiente línea -->
-  <meta name="twitter:image" content="https://mariaalvarez-cloud.github.io/gestor-bancario-frontend/assets/icons/og-image.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Logo GB MIAP y lema del Gestor Bancario">
+  <meta name="twitter:image" content="https://mariaalvarez-cloud.github.io/gestor-bancario-frontend/assets/icons/og-image.png?v=2">
 
   <!-- Iconos -->
   <link rel="icon" type="image/png" href="assets/icons/favicon.png" sizes="32x32">
@@ -40,37 +37,38 @@
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/styles.css">
 </head>
-
 <body>
 
   <!-- Encabezado -->
- <header class="header">
-  <div class="brand">
-    <img
-      src="assets/icons/logo-gb-miap.png"
-      srcset="assets/icons/logo-gb-miap.png 1x, assets/icons/logo-gb-miap@2x.png 2x"
-      alt="Gestor Bancario MIAP"
-      class="brand__logo"
-    />
-    <h1 class="logo">Gestor Bancario</h1>
-  </div>
+  <header class="header">
+    <div class="brand">
+      <!-- OJO: quitamos srcset para evitar problemas en móvil -->
+      <img
+        src="assets/icons/logo-gb-miap.png"
+        alt="Gestor Bancario MIAP"
+        class="brand__logo"
+      />
+      <h1 class="logo">Gestor Bancario</h1>
+    </div>
 
-  <nav class="nav">
-    <button class="nav-btn" id="btnHome">Inicio</button>
-    <button class="nav-btn" id="btnCuentas">Cuentas</button>
-    <button class="nav-btn" id="btnTransacciones">Transacciones</button>
-    <button class="nav-btn" id="btnUsuarios">Usuarios</button>
+  <nav class="nav" aria-label="Navegación principal">
+  <button class="nav-btn" id="btnHome">Inicio</button>
+  <button class="nav-btn" id="btnCuentas">Cuentas</button>
+  <button class="nav-btn" id="btnTransacciones">Transacciones</button>
+  <button class="nav-btn" id="btnUsuarios">Usuarios</button>
+  <button class="nav-btn" id="btnLogout">Salir</button>
   </nav>
-</header>
+
+  </header>
 
   <!-- Contenido principal -->
   <main id="main-content" class="main">
     <h2>Bienvenido(a) al Gestor Bancario</h2>
     <p>Selecciona una opción para comenzar.</p>
-    <section class="promo">
-  <h3>💜 Logra tus sueños financieros con confianza.</h3>
-</section>
 
+    <section class="promo">
+      <h3>💜 Logra tus sueños financieros con confianza.</h3>
+    </section>
   </main>
 
   <!-- Pie de página -->
@@ -78,27 +76,26 @@
     <p>© 2025 Gestor Bancario | Prototipo educativo</p>
   </footer>
 
-<!-- Scripts JS -->
-<script src="js/config.js"></script>
-<script src="js/app.js"></script>
-<script src="js/components/cuentas.js"></script>
-<script src="js/components/transacciones.js"></script>
-<script src="js/components/usuarios.js"></script>
-
-  <!-- Scripts JS -->
-  <script src="js/app.js"></script>
-    <!-- Scripts JS -->
-  <script src="js/app.js"></script>
-  <script src="js/components/cuentas.js"></script>
-  <script src="js/components/transacciones.js"></script>
-  <script src="js/components/usuarios.js"></script>
-  <nav class="bottom-nav">
+  <!-- Barra inferior móvil -->
+  <nav class="bottom-nav" aria-label="Acciones rápidas">
   <button class="bn-item" id="bn-transferir">Transferir</button>
   <button class="bn-item" id="bn-depositar">Depositar</button>
   <button class="bn-item" id="bn-retirar">Retirar</button>
-</nav>
-</body>
-</html>
+  </nav>
 
+
+  <!-- Scripts: orden correcto -->
+  <script src="js/config.js"></script>
+  <script src="js/services/storage.js"></script>
+  <script src="js/services/api.js"></script>
+  <script src="js/app.js"></script>
+  <!-- cspell:disable-next-line -->
+  <!-- Si separaste Home en home.js, inclúyelo; si no, puedes quitarlo -->
+  <script src="js/components/home.js"></script>
+  <script src="js/components/cuentas.js"></script>
+  <script src="js/components/transacciones.js"></script>
+  <script src="js/components/usuarios.js"></script>
+  <script src="js/components/explain.js"></script>
+  <script src="js/components/login.js"></script>
 </body>
 </html>
