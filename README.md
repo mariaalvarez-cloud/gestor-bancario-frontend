@@ -132,3 +132,71 @@ La página no abre → Asegúrate de ver en terminal:
 CORS → No aplica: el navegador llama a tu Express (/api / /api-ax), y Express llama al backend.
 
 “API route not found” → Aparece si llamas a un endpoint que no existe en el backend (p.ej., PUT /cuentas/{id}).
+
+
+
+
+## 🆕 Nueva versión del Frontend — React + Vite (Modernización)
+
+Se desarrolló una versión moderna del frontend utilizando **React 18 + Vite**, reemplazando el renderizado del lado del servidor (Express) por una SPA (Single Page Application) que consume directamente el API REST de Spring Boot.
+
+**Carpeta del nuevo frontend:**  
+`./react-app/`
+
+### 🚀 Ejecución
+
+1. Abrir una terminal y ejecutar:
+   ```bash
+   cd react-app
+   npm install
+   npm run dev
+Abrir en el navegador:
+👉 http://localhost:5173
+
+⚙️ Variables de entorno
+Crear un archivo .env dentro de react-app con el siguiente contenido:
+
+ini
+Copiar código
+VITE_API_BASE_URL=http://localhost:8080
+💡 Tecnologías utilizadas
+React 18 (con Hooks)
+
+React Router v6 (rutas cliente)
+
+Axios (cliente HTTP configurado con baseURL)
+
+Vite (para desarrollo rápido)
+
+Vitest (para pruebas unitarias)
+
+Comunicación directa con el backend Java/Spring (sin servidor Node intermedio)
+
+🧩 Funcionalidades implementadas
+Cuentas
+
+Listar todas las cuentas
+
+Crear nuevas cuentas
+
+Ver detalle de una cuenta específica
+
+Transacciones
+
+Listar transacciones por cuenta
+
+Crear depósitos y retiros
+
+Pruebas automáticas
+
+Servicios Axios probados con Vitest (mock API)
+
+📦 Rama de desarrollo
+feature/modernize-frontend-react
+
+📸 Evidencias:
+Ejecución local: http://localhost:5173
+
+Backend corriendo en: http://localhost:8080
+
+Capturas disponibles en el directorio react-app/estructura.txt si se requieren.
